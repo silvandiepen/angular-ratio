@@ -25,6 +25,7 @@
         var elements = container.querySelectorAll('[class*="ratio"]');
         for (var i = 0; i < elements.length; i++) {
 
+          var wMin = 0, wMax = 750,arw,arh;
           var classNames = elements[i].className;
     			var sizeElement = elements[i];
     			var classArray = classNames.split(' ');
@@ -33,10 +34,27 @@
     			// split values
     				var className = classArray[a].split("-");
 
-    				if(className[0] == "ratio") {
+            if(className[0] == "ratio") {
               // set height
-	    				sizeElement.style.height = (sizeElement.offsetWidth / className[2]/className[1]) +"px";
-	    			}
+              if(isNaN(className[1])){
+                if(className[1] === "alts"){
+                  if(className[3].length > 0){
+                    wMin = className[2];
+                    wMax = className[3];
+                  } else {
+                    wMax = className[2];
+                  }
+                } else if(className[1] === "alt") {
+                  arw = className[2];
+                  arh = className[3];
+                }
+              } else {
+                sizeElement.style.height = (sizeElement.offsetWidth / (className[2]/className[1])) +"px";
+              }
+            }
+          }
+          if(window.innerWidth < wMax && window.innerWidth > wMin && arw > 0 && arh > 0){
+            sizeElement.style.height = (sizeElement.offsetWidth / (arh/arw)) +"px";
           }
         }
       };

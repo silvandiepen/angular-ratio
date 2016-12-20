@@ -28,7 +28,34 @@ Use the ratio function in the controller add the container where ratio has to se
   ratio([container]);
   ```
   
-  
+Add classes to elements to resize, ratio-[height]-[width]
+
+
+  ```html
+  <div class="ratio-3-4"></div>
+  ```
   
   
  Watch the magic... 
+ 
+ 
+ 
+Create an exception by adding alternative ratio; ratio-alt-[height]-[width], this will automatically be applied to screens under 750 pixels wide.
+ 
+  ```html
+  <div class="ratio-alt-3-4"></div>
+  ```
+  
+To alter the default screenwidth for this perticular element:
+  
+  ```html
+  <div class="ratio-alts-640-1024"></div>
+  ```
+  
+To alter the default screenwidth for all elements. Use this on the first to resize element on page:
+  
+  
+  ```html
+  <div class="ratio-default-640-1024"></div>
+  ```
+  
