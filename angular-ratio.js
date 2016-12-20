@@ -54,12 +54,12 @@
                   dwMax = className[3];
                 }
               } else {
-                sizeElement.style.height = (sizeElement.offsetWidth / (className[2]/className[1])) +"px";
+                sizeElement.style.height = Math.ceil(sizeElement.offsetWidth / (className[2]/className[1])) +"px";
               }
             }
           }
           if(window.innerWidth < wMax && window.innerWidth > wMin && arw > 0 && arh > 0){
-            sizeElement.style.height = (sizeElement.offsetWidth / (arh/arw)) +"px";
+            sizeElement.style.height = Math.ceil(sizeElement.offsetWidth / (arh/arw)) +"px";
           }
         }
       };
