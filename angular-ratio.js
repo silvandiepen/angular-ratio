@@ -9,8 +9,19 @@
 	    .service('ratio', [function () {
 
 	    var ratio = function ratio(container) {
-        container = container || document; 
-      	// get ratio elements
+        container = container || document;
+        if(container !== document){
+          tempContainer = document.querySelectorAll(container);
+          if(tempContainer.length > 1){
+            for (var i = 0; i < tempContainer.length; i++) {
+              setRatio(tempContainer[i]);
+            }
+          } else { setRatio(tempContainer[0]); }
+        } else { setRatio(container); }
+	    };
+
+      var setRatio = function setRatio(container){
+        // get ratio elements
           var elements = container.querySelectorAll('[class*="ratio"]');
           for (var i = 0; i < elements.length; i++) {
 
@@ -38,7 +49,7 @@
 	    			}
           }
         }
-	    };
+      };
 
 	    return ratio;
 
