@@ -5,7 +5,7 @@
 */
 
 (function(window, angular, undefined) {
-	 angular.module("ratio", [])
+	 angular.module('ratio', [])
 	    .service('ratio', [function () {
 
 	    var ratio = function ratio(container) {
@@ -34,32 +34,32 @@
 
     		  for (var a = 0; a < classArray.length; a++){
     			// split values
-    				var className = classArray[a].split("-");
+    				var className = classArray[a].split('-');
 
-            if(className[0] == "ratio") {
+            if(className[0] == 'ratio') {
               // set height
               if(isNaN(className[1])){
-                if(className[1] === "alts"){
+                if(className[1] === 'alts'){
                   if(className[3].length > 0){
                     wMin = className[2];
                     wMax = className[3];
                   } else {
                     wMax = className[2];
                   }
-                } else if(className[1] === "alt") {
+                } else if(className[1] === 'alt') {
                   arw = className[2];
                   arh = className[3];
-                } else if(className[1] === "default") {
+                } else if(className[1] === 'default') {
                   dwMin = className[2];
                   dwMax = className[3];
                 }
               } else {
-                sizeElement.style.height = Math.ceil(sizeElement.offsetWidth / (className[2]/className[1])) +"px";
+                sizeElement.style.height = (sizeElement.offsetWidth / (className[2]/className[1])) +'px';
               }
             }
           }
           if(window.innerWidth < wMax && window.innerWidth > wMin && arw > 0 && arh > 0){
-            sizeElement.style.height = Math.ceil(sizeElement.offsetWidth / (arh/arw)) +"px";
+            sizeElement.style.height = (sizeElement.offsetWidth / (arh/arw)) +'px';
           }
         }
       };
