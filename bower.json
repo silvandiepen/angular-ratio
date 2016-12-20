@@ -1,0 +1,21 @@
+{
+  "name": "angular-ratio",
+  "main": "angular-ratio.js",
+  "homepage": "https://github.com/silvandiepen/angular-ratio",
+  "authors": [
+    "silvandiepen <me@silvandiepen.com>"
+  ],
+  "description": "A standalone AngularJS implementation to resize elements into certain ratios",
+  "keywords": [
+    "resize",
+    "ratio"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
