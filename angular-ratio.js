@@ -10,18 +10,16 @@
 
 	    var ratio = function ratio(container) {
 	    	// get ratio elements
-	    		$( container ).find( '[class*="ratio"]' ).each(function() {
+          var elements = document.querySelectorAll('[class*="ratio"]');
+          for (var i = 0; i < elements.length; i++) {
 
-	    		// get classes
-	    			var classNames = $(this).attr('class');
-	    			var sizeElement = $(this);
+            var classNames = elements[i].className;
+	    			var sizeElement = elements[i];
 	    			var classArray = classNames.split(' ');
 
-	    		// for each classname
-	    			$.each( classArray, function(i, value) {
-
+	    		  for (var a = 0; a < classArray.length; a++){
 	    			// split values
-	    				var className = value.split("-");
+	    				var className = classArray[a].split("-");
 
 	    				if(className[0] == "ratio") {
 
@@ -29,17 +27,16 @@
 	    				var rw = className[1];
 
 	    			// return width
-	    				var w = sizeElement.outerWidth();
+	    				var w = sizeElement.offsetWidth;
 
 	    			// return ratio height
 	            var height = (w / (rh/rw));
 
 	    			// set height
-	    				$(sizeElement).css("height", height +"px");
+	    				sizeElement.style.height = height +"px";
 	    			}
-
-	    		});
-	    	});
+          }
+        }
 	    };
 
 	    return ratio;
