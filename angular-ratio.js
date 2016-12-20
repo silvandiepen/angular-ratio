@@ -9,8 +9,9 @@
 	    .service('ratio', [function () {
 
 	    var ratio = function ratio(container) {
-	    	// get ratio elements
-          var elements = document.querySelectorAll('[class*="ratio"]');
+        container = container || document; 
+      	// get ratio elements
+          var elements = container.querySelectorAll('[class*="ratio"]');
           for (var i = 0; i < elements.length; i++) {
 
             var classNames = elements[i].className;
