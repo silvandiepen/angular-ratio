@@ -23,9 +23,11 @@
       var setRatio = function setRatio(container){
         // get ratio elements
         var elements = container.querySelectorAll('[class*="ratio"]');
+
+        var dwMin = 0,dwMax = 750;
         for (var i = 0; i < elements.length; i++) {
 
-          var wMin = 0, wMax = 750,arw,arh;
+          var wMin = dwMin, wMax = dwMax,arw,arh;
           var classNames = elements[i].className;
     			var sizeElement = elements[i];
     			var classArray = classNames.split(' ');
@@ -47,6 +49,9 @@
                 } else if(className[1] === "alt") {
                   arw = className[2];
                   arh = className[3];
+                } else if(className[1] === "default") {
+                  dwMin = className[2];
+                  dwMax = className[3];
                 }
               } else {
                 sizeElement.style.height = (sizeElement.offsetWidth / (className[2]/className[1])) +"px";

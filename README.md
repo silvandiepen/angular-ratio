@@ -53,7 +53,7 @@ To alter the default screenwidth for this perticular element:
   ```
   
 To alter the default screenwidth for all elements. Use this on the first to resize element on page:
-  
+  // Sidenote: This will only work within each container searched in. For exception searching to replace in "section" elements. The default has to get set within each section. When using no container (default: document), this will work from when the default has been set. 
   
   ```html
   <div class="ratio-default-640-1024"></div>
